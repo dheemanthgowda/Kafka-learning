@@ -1,0 +1,12 @@
+package com.learn.vitalsdata.datamodel;
+
+public enum VitalValues {
+    DD_ACQUIRED_DT,
+    HEART_RATE_MONITORED,
+    MEAN_ARTERIAL_PRESSURE_INVASIVE,
+    SYSTOLIC_BLOOD_PRESSURE_INVASIVE,
+    DIASTOLIC_BLOOD_PRESSURE_INVASIVE,
+    SPO2,
+    RESPIRATORY_RATE;
+
+}

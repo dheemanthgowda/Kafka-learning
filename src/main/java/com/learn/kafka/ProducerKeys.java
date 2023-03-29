@@ -21,7 +21,7 @@ public class ProducerKeys {
         try (KafkaProducer<String, String> producer = new KafkaProducer<>(properties)) {
             // Try with resource : Any object that implements java.lang.AutoCloseable, which includes all objects which implement java.io.Closeable, can be used as a resource.
 
-            for(int i=0; i<10; i++) {
+            for(int i=0; i<20; i++) {
                 ProducerRecord<String, String> rec = new ProducerRecord<>("first_topic", "id_" + i%2+1,"Key testing: " + i);
                 producer.send(rec, (recordMetadata, e) -> {
                     //executes everytime record is sent successfully or when there is exception
@@ -35,7 +35,7 @@ public class ProducerKeys {
                     }
                 });
             }
-            producer.flush();
+            //producer.flush() or close() is we don't use try-resource
         } catch (Exception e) {
             throw new Exception(e);
         }
